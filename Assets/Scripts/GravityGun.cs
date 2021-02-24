@@ -7,7 +7,8 @@ public class GravityGun : MonoBehaviour
     public Camera cam;
     public float maxGrabDistance = 10f;
     public Transform objectHolder;
-    public float distance = 100f;
+    public float speed = 100f;
+    public float distance;// = new Vector3();
 
     Rigidbody grabbedRB;
 
@@ -20,7 +21,16 @@ public class GravityGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objectHolder.transform.position = objectHolder.transform.position + cam.transform.forward * distance * Time.deltaTime * Input.GetAxis("Mouse ScrollWheel");
+        distance = Vector3.Distance(cam.transform.position, objectHolder.transform.position);//cam.transform.position - objectHolder.transform.position;
+
+        if(distance >= 2)
+        {
+            objectHolder.transform.position = objectHolder.transform.position + cam.transform.forward * speed * Time.deltaTime * Input.GetAxis("Mouse ScrollWheel");
+        }
+        else
+        {
+            objectHolder.transform.position = objectHolder.transform.position + cam.transform.forward;
+        }
 
         if(grabbedRB)
         {
