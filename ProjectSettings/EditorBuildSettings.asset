@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Collin/Scenes/UI Test.unity
+    guid: 814d162978ef4944ca9108a6371eb1c4
   m_configObjects: {}
