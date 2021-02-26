@@ -21,17 +21,22 @@ public class toggleMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (main_menu)
-            {
-                inMenu = !inMenu;
-                Time.timeScale = (inMenu) ? 0 : 1;
-                menu.enabled = inMenu;
-            }
-            else
-            {
-                menu.enabled = false;
-            }
+            togMen();
         }
             
+    }
+
+    public void togMen()
+    {
+        if (main_menu)
+        {
+            inMenu = !inMenu;
+            Time.timeScale = (inMenu) ? 0 : 1;
+            menu.enabled = inMenu;
+        }
+        else
+        {
+            menu.enabled = false;
+        }
     }
 }

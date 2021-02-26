@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Collin/Scenes/Main Menu.unity
+    guid: 34cd60c4b05b2564aa610bba8b6ac46c
+  - enabled: 1
     path: Assets/Collin/Scenes/UI Test.unity
     guid: 814d162978ef4944ca9108a6371eb1c4
   m_configObjects: {}

@@ -8,7 +8,7 @@ public class buttonScript : MonoBehaviour
 {
     [SerializeField] Canvas oldCanvas;
     [SerializeField] Canvas newCanvas;
-    [SerializeField] Scene newScene;
+    [SerializeField] int sceneIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,6 @@ public class buttonScript : MonoBehaviour
 
     public void switchScene()
     {
-        SceneManager.LoadScene(newScene.name);
+        SceneManager.LoadScene(sceneIndex);
     }
 }
