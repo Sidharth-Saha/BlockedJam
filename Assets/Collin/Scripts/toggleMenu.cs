@@ -9,6 +9,7 @@ public class toggleMenu : MonoBehaviour
     [SerializeField] bool main_menu;
     Canvas menu;
     Boolean inMenu;
+    [SerializeField] FirstPersonLook playerScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,14 @@ public class toggleMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            togMen();
+            this.togMen();
         }
             
     }
 
     public void togMen()
     {
+        playerScript.ToggleMouse();
         if (main_menu)
         {
             inMenu = !inMenu;
