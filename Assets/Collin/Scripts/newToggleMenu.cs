@@ -28,6 +28,7 @@ public class newToggleMenu : MonoBehaviour
 
     void UpdateMenu()
     {
+        Time.timeScale = (inMenu == 0) ? 1 : 0;
         mainMenu.enabled = (inMenu == 1) ? true : false;
         controlMenu.enabled = (inMenu == 2) ? true : false;
     }
