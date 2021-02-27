@@ -7,8 +7,9 @@ public class GravityGun : MonoBehaviour
     public Camera cam;
     public float maxGrabDistance = 10f;
     public Transform objectHolder;
-    public float speed = 100f;
-    public float distance;// = new Vector3();
+    public float speed = 100f, lerpSpeed = 10f;
+    public float distance;
+    public GameObject movableObject;
 
     Rigidbody grabbedRB;
 
@@ -34,15 +35,19 @@ public class GravityGun : MonoBehaviour
 
         if(grabbedRB)
         {
-            grabbedRB.MovePosition(objectHolder.transform.position);
+            grabbedRB.velocity = (objectHolder.transform.position - movableObject.transform.position) * lerpSpeed;
+            //grabbedRB.MovePosition(Vector3.Lerp(grabbedRB.position, objectHolder.transform.position, Time.deltaTime * lerpSpeed));
         }
 
         if(Input.GetKeyDown(KeyCode.E))
         {
             if(grabbedRB)
             {
-                grabbedRB.isKinematic = false;
+                //grabbedRB.isKinematic = false;
+                grabbedRB.useGravity = true;
+                grabbedRB.freezeRotation = false;
                 grabbedRB = null;
+                movableObject = null;
             }
             else
             {
@@ -50,13 +55,17 @@ public class GravityGun : MonoBehaviour
                 Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
                 if(Physics.Raycast(ray, out hit, maxGrabDistance))
                 {
-                    if(hit.collider.gameObject.tag == "Grab")
+                    movableObject = hit.collider.gameObject;
+                    if(movableObject.tag == "Grab")
                     {
-                        grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
+                        grabbedRB = movableObject.GetComponent<Rigidbody>();
                     }
                     if(grabbedRB)
                     {
-                        grabbedRB.isKinematic = true;
+                        //grabbedRB.isKinematic = true;
+                        //grabbedRB.detectCollisions = true;
+                        grabbedRB.useGravity = false;
+                        grabbedRB.freezeRotation = true;
                     }
                 }
             }
