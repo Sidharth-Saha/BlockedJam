@@ -21,7 +21,7 @@ public class GravityGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(cam.transform.position, objectHolder.transform.position);//cam.transform.position - objectHolder.transform.position;
+        distance = Vector3.Distance(cam.transform.position, objectHolder.transform.position);
 
         if(distance >= 2)
         {
@@ -50,7 +50,10 @@ public class GravityGun : MonoBehaviour
                 Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
                 if(Physics.Raycast(ray, out hit, maxGrabDistance))
                 {
-                    grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
+                    if(hit.collider.gameObject.tag == "Grab")
+                    {
+                        grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
+                    }
                     if(grabbedRB)
                     {
                         grabbedRB.isKinematic = true;
