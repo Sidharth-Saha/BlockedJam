@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level 3.unity
     guid: 628bf1d1f944e314ebbe21ee5967bdeb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Collin/Scenes/UI Test.unity
     guid: 814d162978ef4944ca9108a6371eb1c4
   m_configObjects: {}
