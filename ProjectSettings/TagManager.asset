@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grab
+  - Wall
+  - AI
   layers:
   - Default
   - TransparentFX

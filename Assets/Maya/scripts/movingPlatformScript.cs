@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,10 +56,12 @@ public class movingPlatformScript : MonoBehaviour
     {
         if (automatic)
         {
-            if(Time.time - delayStart < delayTime)
+            if (Time.time - delayStart < delayTime)
             {
                 NextPlatform();
             }
+            else
+                NextPlatform();
         }
     }
 
